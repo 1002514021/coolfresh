@@ -1,0 +1,104 @@
+.btn-default,.modal-content,.btn-primary{
+    border-radius: 0!important;
+}
+#optBox{
+    background:#fff url() no-repeat 0 0/100% 100%;
+}
+#mainBox{
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    /* background-color: #000;
+    opacity: 0.5; */
+}
+#mainBox .content{
+    
+    width: 70%;
+    height: 80%;
+    background-color: #fff;
+    margin:5% auto;
+    overflow: hidden;
+    background: url(../images/registerBg.jpg) no-repeat 0 0 /100%
+}
+#optItem{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid rgb(146, 138, 138); */
+    width: 40%;
+    height: 90%;
+    margin: 3% 10% 3% 40%;
+    background-color: #fff;
+    box-shadow: 0 0 10px 6px #eee;
+    padding:0 2% 2% 2%;
+    overflow: hidden;
+}
+#optBox .closeBtn{
+    position: fixed;
+    font-size: 20px;
+    cursor: pointer;
+    top: 10px;
+    right: 15px;
+    color:#fff;
+}
+#optBox .closeBtn:hover{
+    color:#0C9702
+}
+#optItem h3{
+    height: 7%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 100%;
+    border-bottom: 1px solid #eee;
+    margin: 5% 0 10% 0;
+}
+
+#optItem .optOthers{
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    line-height: 300%;
+    flex-direction: row-reverse
+    /* margin-top: 20%; */
+}
+#optItem .optOthers a{
+    text-decoration: none;
+    color:#0C9702;
+    font-size: 12px;
+}
+#optItem input{
+    width: 50%;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+#optItem>div{
+    margin-bottom: 10%;
+}
+#optItem .myName{
+    display: inline-block;
+    width: 25%;
+}
+#optItem button{
+    display: block;
+    background-color: #0C9702;
+    color: #fff;
+    font-size: 12px;
+    border: none;
+    /* line-height: 200%; */
+    text-align: center;
+    width: 80px;
+    height: 6%;
+    margin: auto;
+
+}
+#sendCode{
+    font-size: 12px;
+    color: #0C9702;
+    margin-left: 5%;
+    cursor: pointer;
+}
+#warning{
+    color:red;
+    font-size:12px;
+    /* display: none; */
+}

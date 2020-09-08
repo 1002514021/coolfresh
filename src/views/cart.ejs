@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1150685_6m9uh1295e9.css">
+    <title>cart</title>
+</head>
+
+<body>
+    <%-include('common/header.ejs')%>
+    <!-- <ul id="breadcrumb">
+        <li class="referrer"><a href=""></a></li>
+        <li class="active">购物车</li>
+    </ul> -->
+    <div class="optTitle">
+        <span class="optUnderLine iconfont icon-bofang"> 我的购物车</span>
+        <span class=" iconfont icon-bofang"> 填写核对订单信息</span>
+        <span class=" iconfont icon-bofang"> 订单提交成功</span>
+    </div>
+    <%if(data.length==0){%>
+    <div id="noGoods">
+        <p>您的购物车暂无商品，<a href="goodList">去逛逛吧</a></p>
+    </div>
+    <%}else{%>
+    <div id="hasGoods">
+        <div class="cartGoods">
+            <table border='1'>
+                <thead>
+                    <tr>
+                        <th style="display:none"></th>
+                        <th><input id="chooseAllBtn" type="checkBox" checked></th>
+                        <th>图片</th>
+                        <th>商品名称</th>
+                        <th>售价</th>
+                        <th>数量</th>
+                        <th>小计</th>
+                </thead>
+                <tbody>
+                    <%data.forEach((item)=>{%>
+                    <tr>
+                        <td style="width: 10%; display:none" class="goodId"><%=item.goodId%></td>
+                        <td style="width: 10%;"><input class="chooseSome" checked type="checkBox"></td>
+                        <td style="width: 10%;" class="imgTd"><a
+                                href="details?goodId=<%=item.goodId%>"><img src="../images/<%=item.image%>" alt=""></a>
+                        </td>
+                        <td style="width: 10%;"><%=item.goodName%></td>
+                        <td style="width: 10%;">￥<span><%=item.price%></span></td>
+                        <td style="width: 10%;" class="goodNum"><input class="goodNumInput" type="text" value="<%=item.number%>"></td>
+                        <td style="width: 10%;">￥<span class="money"><%=item.price*item.number%></span></td>
+                    </tr>
+                    <%})%>
+                </tbody>
+            </table>
+            <div class='checkout'>
+                <div class="totalMoneyBar">购物车合计（不含运费）：<span class="totalMoney"></span></div>
+                <div class="checkout-btn">
+                    <button class="deleteBtn">删除商品</button>
+                    <button class="goshop">继续购物</button>
+                    <button class="checkoutBtn">去结算</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+
+    </div>
+    <%}%>
+    <%-include('common/message.ejs')%>
+    <%-include('common/footer.ejs')%>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src='../js/cart.js'></script>
+    <script src="../js/message.js"></script>
+    <script>
+        $(document).ready(function () {
+            // $('.btn-success').trigger('click')
+        })
+    </script>
+</body>
+
+</html>

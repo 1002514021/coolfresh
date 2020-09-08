@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>coolFresh</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1150685_p2u0ulgrejc.css">
+    <link rel="stylesheet" href="../css/goodBox.css">
+</head>
+<body>
+
+    <%-include("common/header.ejs")%>
+    <!--=================banner轮播-->
+    <section id="banner" class="banner-w3ls">
+        <div class="slider">
+            <ul class="slider-main">
+                <li>
+                    <img src="../images/banner2.jpg" alt="">
+                </li>
+                <li>
+                    <img src="../images/banner1.jpg" alt="">
+                </li>
+                <li>
+                    <img src="../images/banner3.jpg" alt="">
+                </li>
+                <li>
+                    <img src="../images/banner4.jpg" alt="">
+                </li>
+                <li>
+                    <img src="../images/banner5.jpg" alt="">
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--=================center-->
+    <section id="section">
+        <!-- 热门分类概要展示 -->
+        <div id="sortBar">
+            <a href="" class='sort'>
+                <img src="../images/fruit.jpg" alt="">
+            </a>
+            <a href="" class='sort'>
+                <img src="../images/fruit2.jpg" alt="">
+            </a>
+            <a href="" class='sort'>
+                <img src="../images/fruit_drinks1.jpg" alt="">
+            </a>
+        </div>
+        <%goods.forEach((item)=>{%>
+        <div class="sort_details">
+            <div class="headline">
+                <div class="headline_left">
+                    <span class="sortNameBar">【<span class="sortName"><%=item.category%></span>】</span>
+                    <span class="sortDescribe"><%=item.describe%></span>
+                </div>
+                <a href='goodList?categoryId=<%=item.categoryId%>' style="color:#333"  class="headline_right">查看更多</a>
+            </div>
+            <div class="sort_good_boxs">
+                <%item.goods.forEach((item)=>{%>
+                <div class="sort_good_box">
+                    <div class="sort_good_details">
+                        <div class="imgBox">
+                            <img src="../images/<%=item.image%>" alt="">
+                        </div>
+                        <div class="paras">
+                            <div class="paras_title">
+                                <div class="para_goodName"><%=item.goodName%></div>
+                                <div class="sellNumBar appointBar"><span class="cellText">预约量：</span><span class="appointNum"><%=item.appointNum%></span></div>
+                                <div class="sellNumBar sellBar"><span class="cellText">购买量：</span><span class="sellNum"><%=item.sellNum%></span></div>
+                            </div>
+                            <div class="paras_others">
+                                <div class="price">
+                                    <!-- 原价是最小份装的钱 -->
+                                    <span class="tagSpan">售价：</span>
+                                    <div class="differPrice">
+                                        <span class="orinalPriceBox">
+                                            <span>$</span>
+                                            <span class="orinalPrice"><%=item.originalPrice%></span>
+                                        </span>
+                                        <span class="preferentialPriceBox">
+                                            <span>$</span>
+                                            <span class="preferentialPrice"><%=item.price%></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="views">
+                                    <span class="viewNum"><%=item.viewNum%></span>
+                                    <span class="iconfont icon-liulanjilu"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sort_good_options">
+                        <span class="startTime" style="display:none"><%=item.startTime%></span>
+                        <span onclick="appointment(`<%=item.goodId%>`)" class="appointment iconfont icon-banshuiyuyue"></span>
+                        <span onclick="addToCart(this,`<%=item.goodId%>`)" class="add_to_cart iconfont icon-tubiaozhizuomoban"></span>
+                        <span onclick="toQuickView(`<%=item.goodId%>`)" data-toggle='modal' data-target='#quickViewBox' class="iconfont icon-kuaisuchakan" title='快速浏览'></span>
+                        <span onclick="toDetails(`<%=item.goodId%>`)" class="iconfont icon-xiangqingchakan" title='查看详情'></span>
+                    </div>
+                </div>
+                <%})%>
+            </div>
+        </div>
+        <%})%>
+    </section>
+    <div id="quickViewBox" class="modal fade" role="dialog">
+        <div class="modal-dialog" style="width:60%" role="document" aria-hidden="true" >
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="leftBar">
+                        <div class="bigSlideBox">
+                            <img src="">
+                        </div>
+                        <div class="smallSlideBox"> 
+                            <div class="smallSlide">
+                                <ul class="imgUl"></ul>
+                            </div>
+                            <span name='pre' class="slideBtn pre iconfont icon-leftarrow"></span>
+                            <span name='next' class="slideBtn next iconfont icon-rightarrow"></span>
+                        </div>
+                        
+                    </div>
+                    <div class="rightBar">
+                        <h3 class="quickview_gname"></h3>
+                        <div class="priceBar">
+                            <div></div>
+                            <div class="prices" style="font-size:12px">
+                               原价： <div class="price-original"></div>
+                                售价：<div class="price-preferential"></div>
+                            </div>
+                        </div>
+                        <div class="good-describe"></div>
+                        <div class="nutrition" style="font-size:12px;margin-bottom:2%">
+                                <span>所含营养成分：</span>
+                                <span class="nutritions"></span>
+                            </div>
+                            <div class="marketTime" style=" font-size:12px;margin-bottom:2%">
+                                <span>售卖时间：</span>
+                                <span class="putaway sellTime"></span>
+                                <span>到</span>
+                                <span class="soldOut sellTime"></span>
+                            </div>
+                        <div class='purchaseParas'>
+                            <div class="choosePurchaseSize">
+                                    <div class="measuringUnit" style="font-size:12px;margin-bottom:5%">
+                                        <span>计量单位：</span>
+                                        <span class="unit"></span>
+                                    </div>
+                            </div>
+                            <div class="choosePurchaseNum">
+                                <span class="chooseNumTitle">数量：</span>
+                                <div class="chooseNum">
+                                        <input class="customNum" type="text" value="1">
+                                        <div class="optBtnBar">
+                                            <div class="optBtn minus">-</div>
+                                            <div class="optBtn add">+</div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="purchaseOpts">
+                            <div style="display:none" id="goodId"></div>
+                            <div class="tocart optItem inSell">
+                                <span class="iconfont icon-tubiaozhizuomoban"></span>
+                                加入购物车
+                            </div>
+                            <div class="tocheckout optItem inSell">
+                                <span class="iconfont icon-yijiangoumai"></span>
+                                立即购买
+                            </div>
+                            <div class="optItem unSell" style="display:none">
+                                    <span class="iconfont icon-banshuiyuyue"></span>
+                                    立即预约
+                            </div>
+                        </div>
+                        <div class="share">
+                                <span class="shareTitle">分享到：</span>
+                                <div class="shareObj">
+                                    <span  class="iconfont icon-weixin"></span>
+                                    <!-- <span class="iconfont icon-weixin"></span> -->
+                                </div>
+                        </div>
+                    </div>
+                    <span data-toggle="modal" data-target="#quickViewBox" class="modalCloseBtn iconfont icon-icon-test"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%-include('common/footer.ejs')%>
+    <%-include('common/message.ejs')%>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="../js/index.js"></script>
+    <script type="text/javascript" src='js/jquery-ui.min.js'></script>
+    <script src="../js/message.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript">
+        // banner轮播实例
+        var slider = new osSlider({
+            pNode: '.slider',
+            cNode: '.slider-main li',
+            speed: 3000,
+            autoPlay: true
+        });
+
+    </script>
+</body>
+
+</html>

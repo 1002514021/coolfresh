@@ -1,0 +1,159 @@
+*{
+    margin:0;
+    padding: 0;
+    margin: 0;
+	padding: 0;
+	user-select: none;
+	-webkit-user-select: none;
+	list-style: none;
+}
+.btn-default,.modal-content,.btn-primary{
+    border-radius: 0!important;
+}
+a{
+    text-decoration: none;
+}
+ol,ul{
+    list-style: none;
+}
+img{
+    font-size: 0;
+}
+#goodBanner{
+    width:100%;
+    background-color:red;
+}
+#goodBanner .slideList{
+    overflow:hidden;
+    position: relative;
+    contain: '';
+    display: block
+}
+.icon-jinyong_o{
+	font-weight:bold;
+}
+#goodBanner li{
+    transition: all linear .8s;
+    float: left;
+    position: absolute;
+    top:0;
+    left:0
+}
+#section{
+    width: 100%;
+	padding:2% 3%;
+}
+
+#conditionBox{
+	display: flex;
+	align-items: center;
+	padding:0 2%;
+	height: 25px;
+	overflow: hidden;
+}
+.titleIcon{
+	color:#0C9702;
+	font-size: 20px!important;
+	margin-right: 2%;
+}
+#conditionBox .conditions{
+	display: flex;
+	justify-content: space-between;
+	width: 70%;
+	flex-wrap: nowrap;
+	font-size: 12px
+}
+#conditionBox .conditions>div{
+	height: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between
+}
+#conditionBox .conditions>div .barTag{
+	height: 100%;
+	overflow: hidden;
+	margin-right: 10px;
+	white-space: nowrap;
+}
+#conditionBox .searchBtnBox{
+	width:10%;
+	text-align: center;
+}
+#conditionBox .searchBtn{
+	font-size: 18px;
+}
+#conditionBox .searchBtn:hover{
+	cursor: pointer;
+	transition: all linear .3s;
+	color:#0C9702;
+	font-weight: bold
+}
+#conditionBox  input,select{
+	height: 24px;
+	border:1px solid #eee;
+	text-align: center
+}
+#conditionBox  input{
+	width: 120px;
+}
+#paginationBar{
+	font-size: 12px;
+	clear: both;
+	contain: '';
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+#paginationBar .pagination{
+	text-align: center;
+}
+#paginationBar .pagination li{
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin: 5px;
+	line-height:30px;
+	cursor: pointer;
+	transition: all linear .3s;
+	text-align: center;
+
+}
+#paginationBar .pagination .pageBtn{
+	font-size: 14px;
+	border:1px solid #eee;
+}
+#paginationBar .pagination .pageBtn:hover{
+	color:#fff;
+	border:1px solid #0C9702;
+	background-color: #0C9702;
+}
+.pageBtnActive{
+	color:#fff;
+	border:1px solid #0C9702;
+	background-color: #0C9702;
+}
+
+#paginationBar .customNumBox{
+	display: flex;
+	width:10%;
+	align-items: center;
+	/* justify-content: space-between */
+}
+#paginationBar .customNumBox .customNumTitle{
+	width:45%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#paginationBar .customNumBox .customNum{
+	width: 23%;
+	border: none;
+	text-align: center;
+	color:#0C9702;
+	font-weight:bold;
+}
+#paginationBar .totalData{
+	color:#0C9702;
+	font-weight:bold;
+}

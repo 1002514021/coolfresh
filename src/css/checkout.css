@@ -1,0 +1,187 @@
+/* 面包屑 */
+*{
+    color:#333;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+.btn-default,.modal-content,.btn-primary{
+    border-radius: 0!important;
+}
+#breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
+#breadcrumb{
+    list-style: none;
+    overflow: hidden;
+    clear: both;
+    contain: '';
+    display: block;
+    padding: 1.6% 3%;
+    margin: 2% 0;
+    background-color: #f5f5f5;
+}
+
+#breadcrumb li{
+    float: left;
+    margin-left: 20px;
+}
+#breadcrumb .referrer a{
+    color: #0C9702
+}
+
+.optTitle{
+    margin:1% 10% ;
+    display: flex;
+    /* justify-content: center; */
+    border-bottom: 1px solid #ddd;
+}
+.optUnderLine{
+    color:#0C9702!important;
+    border-bottom:2px solid #0C9702;
+}
+.optTitle>span{
+    padding: 30px;
+    font-size: 12px;
+}
+#checkoutInfo{
+    padding: 1% 10%
+}
+#checkoutInfo h3{
+    border-bottom: 1px dotted #ddd;
+    line-height: 300%;
+    font-size: 14px;
+}
+#checkoutInfo .addresses{
+    /* width: 80%; */
+    text-align: center;
+    border-spacing: 20px;
+    border-collapse: separate; 
+}
+#checkoutInfo .addresses td{
+    border: none;
+}
+#checkoutInfo .addresses button{
+    width: 30%;
+    border: none;
+    background-color: #fff;
+    transition: all linear .3s;
+    padding: 1%;
+    margin: 0 2%;
+}
+#checkoutInfo .addAddr{
+    border:none;
+    padding:0.5% 1%;
+    margin: 2% 0;
+    background-color: #0C9702;
+    color: #fff;
+}
+#checkoutInfo  .goods{
+    text-align: center;
+    border-spacing: 20px;
+    border-collapse: collapse; 
+    border: 1px solid #ddd;
+    width: 100%
+}
+#checkoutInfo  .goods th{
+    padding: 1.5%;
+}
+#checkoutInfo  .goods th,td{
+    border: 1px solid #ddd;
+    text-align: center;
+}
+#checkoutInfo  .goods thead,tfoot{
+    border: none;
+    background-color: #ddd;
+}
+#checkoutInfo  .goods tfoot td{
+    text-align: right;
+    padding:1% 5%;
+}
+#checkoutInfo  .goods tfoot td>span{
+    margin: 0 1%
+}
+#checkoutInfo  .goods img{
+    height: 10%;
+    margin: 2%;
+}
+.submitOrderBox{
+    display: flex;
+    align-items: center;
+    padding:5% 0;
+}
+
+.submitOrderBox button{
+    margin-left: 3%;
+    background-color: #0C9702;
+    color: #fff;
+    font-size: 12px;
+    border: none;
+    padding: 0.7% 2%;
+}
+#checkoutInfo .cancelOrder{
+    background-color: #ddd;
+    color:#333;
+    transition: all linear .3s
+}
+#checkoutInfo .cancelOrder:hover{
+    background-color: #0C9702;
+    color: #fff;
+}
+/* editAddr -------------- */
+#editAddr li{
+    display: flex;
+    margin-bottom:3%;
+    align-items: flex-end
+}
+#editAddr .close{
+    font-size: 18px;
+}
+#editAddrLabel{
+    color:#0C9702;
+    font-size: 16px
+}
+#editAddr label{
+    width: 20%;
+}
+#editAddr li input{
+    padding: 1%;
+    width: 80%
+}
+#editAddr .chooseAddr{
+    display: flex;
+    width: 80%;
+}
+#editAddr .chooseAddr select{
+    padding: 1%;
+    margin-right: 2%;
+    width: 20%
+}
+#editAddr .modal-body button{
+    font-size: 12px;
+    width: 15%;
+    margin:2%;
+    border: none;
+    background-color: #ddd;
+}
+#editAddr .addrOrEditBtn{
+    background-color: #0C9702!important;
+}
+#sureDelete button{
+    padding: 0.5% 5%;
+    border: none;
+    background-color: #ddd;
+    font-size: 12px;
+    border-radius: 0
+}
+#sureDelete .modal-footer{
+    height: 50px;
+    text-align: center;
+}
+#sureDelete .deleteBtn{
+    background-color: #0C9702;
+    color: #fff;
+    margin:0 10%;
+}

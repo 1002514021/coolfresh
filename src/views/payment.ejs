@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/payment.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1150685_ybyf45p138.css">
+</head>
+
+<body>
+    <%-include('common/header.ejs')%>
+    <!-- <ul id="breadcrumb">
+        <li class="referrer"><a href="checkout">订单</a></li>
+        <li class="active">付款</li>
+    </ul> -->
+    <div class="optTitle">
+        <span class="iconfont icon-bofang"> 我的购物车</span>
+        <span class=" iconfont icon-bofang"> 填写核对订单信息</span>
+        <span class="optUnderLine iconfont icon-bofang"> 订单提交成功</span>
+    </div>
+    <div id="mainBar">
+        <%if(state==1){%>
+            <p style="padding:5%">订单已支付完成，<a href="goodList" style="color:#0C9702">继续购物</a></p>
+        <%}else if(state==0){%>
+        <div>
+            <h3>订单已提交，请您立即付款，我们将最快为您发货！</h3>
+            <p>请您在<span style="color:#0C9702;font-size:16px">12小时内</span>完成付款，超后系统将自动取消订单</p>
+            <div><span>订单编号：</span><span class="orderNum"><%=data[0].orderCode%></span></div>
+            <div><span>订单金额：</span><span class="orderMoney"><%=data[0].fee%></span></div>
+        </div>
+        <div>
+            <p>请选择支付方式</p>
+            <div class="payMethods">
+                <span class="payMethod iconfont icon-zhifubao"></span>
+            </div>
+        </div>
+        <button id="pay">立即付款</button>
+        <%}%>
+    </div>
+    <%-include('common/footer.ejs')%>
+        <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+        <script src="../js/payment.js"></script>
+</body>
+
+</html>

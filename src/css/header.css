@@ -1,0 +1,300 @@
+/*淘宝样式清除*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea {margin: 0;padding: 0;}
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+
+/*header自定义样式*/
+.btn-default,.modal-content,.btn-primary{
+    border-radius: 0!important;
+}
+#header{
+    /* min-width: 800px; */
+    width: 100%;
+    z-index: 100;
+    background-color:rgba(255,255,255,0.9);
+    position: fixed;
+    /*box-shadow: 0 0.01px 0.01px 0.01px #363f4d;*/
+    top: 0;
+    left:0;
+    box-shadow: 0 1px 5px 2px #fff
+}
+#hLogo{
+    display: flex;
+    align-items: center
+}
+#hLogo .logoText{
+    display: inline-block;
+    padding: 0 20px;
+    text-indent: -1000px
+}
+#hMainBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+#hLogo img{
+    height: 81px;
+}
+#nav{
+    width: 60%;
+    color:#363F4D;
+}
+#nav .myUl{
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+}
+#nav .headerActive>a{
+    color:#78A206;
+    text-decoration: none;
+}
+#nav .myli{
+    position: relative;
+    display: flex;
+}
+#nav .myli a{
+    font-size: 12px;
+}
+#nav .dropdown{
+    display: flex;
+    align-items: center
+}
+#nav .dropdown .iconfont{
+    padding: 5px
+}
+#nav .myli:hover .dropdownMenu{
+    transform: rotateX(0deg);
+    background-color:rgba(255,255,255,1)
+}
+#nav .dropdownMenu{
+    border: none;
+    transition: all .3s linear;
+    transform-origin: top;
+    transform: rotateX(90deg);
+    background-color: rgba(255,255,255,0.3);
+    position: absolute;
+    top:0;
+    left:50%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* width: 100%; */
+}
+#nav .dropdownMenu li{
+    width: 100px;
+    text-align: center;
+    line-height: 200%;
+    padding: 0 6%
+}
+#nav a{
+    display: inline-block;
+    color:#363F4D;
+    width: 100%;
+    text-decoration: none;
+}
+#nav a:hover{
+    color:#78A206;
+}
+#hOthers{
+    width: 25%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+#hOthers input{
+    font-size: 12px;
+    width: 70%;
+    background-color:transparent;
+    border: none;
+    border-left: 1px solid #DDDDDD;
+    padding: 5px 5px 5px 10px;
+}
+#hOthers .iconfont{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+#hMainBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#rightBar{
+    display: flex;
+    width: 100%;
+    padding: 0 2% 0 5%;
+    justify-content: space-between;
+}
+#hOthers .cart{
+    position: relative;
+}
+#hOthers .cartNum{
+    display: inline-block;
+    color: #fff;
+    background-color: #78A206;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top:0;
+    right:-10px;
+    text-align: center;
+    line-height: 16px;
+}
+#hOthers .wx:hover{
+    color:#78A206
+}
+#hOthers .wx{
+    position: relative;
+   
+}
+#hOthers .codeImgBox{
+    padding: 5px 0;
+    position: absolute;
+    top:50px;
+    left: -50px;
+    background-color: #fff;
+    text-align: center;
+    display:none
+}
+#hOthers .codeText{
+    width: 120px;
+    color: #363F4D;
+    font-size: 12px
+}
+#hOthers .wx img{
+    width:100px;
+    height:100px;
+}
+#hSliderBar{
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 70px;
+}
+
+
+#hSliderBar .hSliderRightBar{
+    width:18%;
+    display: flex;
+    font-size: 12px;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 12px;
+}
+
+#hSliderBar .hSliderRightBar .loginState{
+    display: none;
+}
+#hSliderBar .hSliderRightBar .noLogin{
+    width: 30%;
+    display: flex;
+    justify-content: space-between
+}
+#hSliderBar .hSliderRightBar a{
+    text-decoration: none;
+    display: inline-block;
+    color:#333;
+
+}
+#logout{
+    padding: 0 5px;
+    cursor: pointer;
+}
+#hSliderBar .helpBtn,a{
+    transition: all .2s linear
+}
+#hSliderBar .helpBtn:hover{
+    color:#0C9702;
+ }
+#hSliderBar .hSliderRightBar a:hover{
+    color:#0C9702 
+}
+#logout:hover{
+    color:#0C9702 
+}
+#hSliderBar .scrollNews{
+    overflow: hidden;
+    width: 90%;
+    height: 100%;
+}
+#hSliderBar .scrollNews ul{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    white-space: nowrap; /*超出不折行*/
+}
+#hSliderBar .scrollNews li{
+    display: inline-block;
+    line-height: 20px;
+    font-size: 12px;
+    padding-right: 50px;
+    /* -webkit-transform: translate3d(0, 0, 0); */
+    /* transform: translate3d(0, 0, 0); */
+}
+.theanimation{
+    animation:theanimation 20s infinite linear;
+    /* -webkit-animation:theanimation 20s infinite linear; */
+}
+@keyframes theanimation{
+    from {
+     transform:translateX(0%);
+    } 
+    to {
+     transform:translateX(-100%);
+    } 
+   }
+   /* @-webkit-keyframes theanimation{ 
+    from {
+     -webkit-transform:translateX(0%);
+    } 
+    to {
+     -webkit-transform:translateX(-100%);
+    }
+   } */
+  
+#myModalLabel{
+    color:#78A206;
+    font-size: 16px;
+}
+#helpModal li{
+    margin-bottom: 20px;
+}
+
+#helpModal .title{
+    color: #333;
+    margin-bottom: 10px;
+}
+#helpModal .descriptions{
+    font-size: 12px;
+    color: #363F4D
+}
+
+#cartModal .modal-content{
+    margin-top:40%;
+}
+#cartModal .modal-footer button{
+    border: none;
+    font-size: 12px;
+}
+
+#cartModal .modal-footer .btn-primary{
+    background-color: #78A206;
+}

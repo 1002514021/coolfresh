@@ -1,0 +1,128 @@
+*{
+    font-size: 12px
+}
+.btn-default,.modal-content,.btn-primary{
+    border-radius: 0!important;
+}
+#loginBox{
+    background:#fff url() no-repeat 0 0/100% 100%;
+}
+#mainBox{
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    /* background-color: #000;
+    opacity: 0.5; */
+}
+#mainBox .content{
+    width: 70%;
+    height: 80%;
+    background-color: #fff;
+    margin:5% auto;
+    overflow: hidden;
+    background: url(../images/loginBg1.jpg) no-repeat 0 0 /100%
+}
+#loginItem{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid rgb(146, 138, 138); */
+    width: 40%;
+    height: 90%;
+    margin: 3% 20%;
+    background-color: #fff;
+    box-shadow: 0 0 10px 6px #eee;
+    padding:0 2% 2% 2%;
+    overflow: hidden;
+}
+#loginBox .closeBtn{
+    position: fixed;
+    font-size: 20px;
+    cursor: pointer;
+    top: 10px;
+    right: 15px;
+    color:#fff;
+}
+#loginBox .closeBtn:hover{
+    color:#0C9702
+}
+#loginItem h3{
+    height: 7%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 100%;
+    border-bottom: 1px solid #eee;
+    margin: 5% 0 10% 0;
+}
+#warning{
+    color:red;
+    font-size:12px;
+    display: none;
+}
+#codeErr{
+    color:red;
+    font-size:12px;
+    display: none;
+}
+#loginItem .loginOthers{
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    line-height: 300%;
+    /* margin-top: 20%; */
+}
+#loginItem .loginOthers a{
+    text-decoration: none;
+    color:#0C9702;
+    font-size: 12px;
+}
+#loginItem input{
+    /* width: 60%; */
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+#loginItem>div{
+    margin-bottom: 10%;
+}
+#loginItem .myName{
+    display: inline-block;
+    width: 25%;
+}
+#loginItem button{
+    display: block;
+    background-color: #0C9702;
+    color: #fff;
+    font-size: 12px;
+    border: none;
+    /* line-height: 200%; */
+    text-align: center;
+    width: 80px;
+    height: 6%;
+    margin: auto;
+
+}
+#loginItem .svgCheck{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end
+}
+#loginItem input{
+    width: 60%;
+}
+#loginItem .svgCheck .changeText{
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+}
+#loginItem .svgCheck .imgCode{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+}
+#loginItem .svgCheck .changeText:hover{
+    color:#0C9702;
+}
+#loginItem .svgCheck svg{
+    width:100%;
+    height:30%;
+}

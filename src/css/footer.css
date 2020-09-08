@@ -1,0 +1,165 @@
+.btn-default,.modal-content,.btn-primary{
+    border-radius: 0!important;
+}
+#footer{
+    background-color: #fff;
+}
+#footer .fHeader{
+    background-color: #0C9702;
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+    padding: 0 10%;
+    padding: 10px 50px;
+}
+#footer .fHeader ul{
+    width: 100%
+}
+
+#footer .fHeader ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+}
+#footer .fHeader li{
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+}
+
+#footer .fHeader .iconfont{
+    font-size: 30px;
+    color: #363F4D;
+    margin-right: 10px
+}
+#footer .fHeader h3{
+    font-size: 14px;
+    line-height: 30px;
+}
+#footer .fHeader h4{
+    font-size: 12px;
+}
+#footer .fBottom{
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 12px;
+}
+#footer .fBottom img{
+    width: 35px;
+    height: 30px;
+    display: inline-block;
+}
+#footer .fCenter{
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between
+}
+
+#footer .fCenterRightBar{
+    border-left: 1px solid #ddd;
+    padding: 0 5%;
+}
+#footer .fCenterRightBar .wxCodeImg{
+    width: 120px;
+    height: 140px;
+}
+#footer .fCenterLeftBar{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+}
+#footer .fCenterLeftBar .fPhoneBar{
+    display: flex;
+    flex-direction: column;
+}
+#footer .fCenterLeftBar .fPhoneBar{
+    font-size: 12px;
+    display: flex;
+}
+#footer .fCenterLeftBar .fPhoneBar .icon-zuoji{
+    font-size: 30px;
+    color:#008000;
+}
+#footer .fCenterLeftBar .phone{
+    margin-top: 15%;
+    font-size:20px;
+    color:#008000;
+    font-weight: bold;
+    font-style: italic   
+}
+#footer .fCenterLeftBar ul{
+    display: flex;
+    flex-direction: column;
+}
+#footer .fCenterLeftBar ul li{
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 20%;
+    
+}
+#footer .fCenterLeftBar ul li a{
+    text-decoration: none;
+    color:#676E78;
+    transition: all .3s linear;
+    font-size: 12px
+}
+#footer .fCenterLeftBar ul li a:hover{
+    color: #008000;
+}
+#footer .fCenterLeftBaUls{
+    padding: 3%;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+ .side{
+    position:fixed;
+    width:40px;
+    height:275px;
+    right:0;
+    top:260px;
+    z-index:100;
+}
+.side ul{
+    display: flex;
+    flex-direction: column
+}
+.side ul li{
+    width:40px;
+    height:50px;
+    float:left;
+    position:relative;
+    border-bottom:1px solid #444;
+}
+.side ul li .sidebox{
+    position:absolute;
+    width:40px;
+    height:50px;
+    top:0;
+    right:0;
+    transition:all 0.3s;
+    background:#000;
+    opacity:0.8;
+    filter:Alpha(opacity=80);
+    color:#fff;
+    font:14px/54px "微软雅黑";
+    overflow:hidden;
+}
+.side ul li .sidetop{
+    width:40px;
+    height:50px;
+    line-height:50px;
+    display:inline-block;
+    background:#000;
+    opacity:0.8;
+    filter:Alpha(opacity=80);
+    transition:all 0.3s;
+}
+.side ul li .sidetop:hover{background:#ae1c1c;
+    opacity:1;
+    filter:Alpha(opacity=100);
+}
+.side ul li img{
+    margin:5px;
+}

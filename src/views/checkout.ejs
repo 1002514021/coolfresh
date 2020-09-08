@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>checkout</title>
+    <link rel="stylesheet" href="../css/checkout.css">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1150685_6m9uh1295e9.css">
+</head>
+<%-include('common/header.ejs')%>
+<!-- <ul id="breadcrumb">
+    <li class="referrer"><a href="cart">购物车</a></li>
+    <li class="active">核对订单信息</li>
+</ul> -->
+<div class="optTitle">
+    <span class="iconfont icon-bofang"> 我的购物车</span>
+    <span class="optUnderLine iconfont icon-bofang"> 填写核对订单信息</span>
+    <span class=" iconfont icon-bofang"> 订单提交成功</span>
+</div>
+<div id="checkoutInfo">
+    <div class="recipientInfo">
+        <h3 style="border:0 1px 1px 1px solid red">收获人信息</h3>
+        <%if(addresses.length==0){%>
+        <div>暂无收货人信息</div>
+        <%}else{%>
+        <table class="addresses">
+            <tbody>
+                <%addresses.forEach((item)=>{%>
+                <tr>
+                    <td class="addrId" style="display:none"><%=item.addressId%></td>
+                    <%if(item.isDefault){%>
+                    <td style="width:5%"><input checked name='addr' type="radio"></td>
+                    <%}else{%>
+                    <td style="width:5%"><input name='addr' type="radio"></td>
+                    <%}%>
+                    <td class="recipient" style="width:10%"><%=item.recipient%></td>
+                    <td style="width:20%">
+                        <span class="province"><%=item.province%></span>
+                        <span class="city"><%=item.city%></span>
+                        <span class="county"><%=item.county%></span>
+                        <span class="detailAddr"><%=item.detailAddr%></span>
+                    </td>
+                    <td class="phone" style="width:10%"><%=item.phone%></td>
+                    <td class="zipCode" style="width:10%"><%=item.zipCode%></td>
+                    <td style="width:20%"><button class="modifyAddr" onclick="modifyorAdd(this)">修改</button> / <button
+                            onclick="deleteAddr(this,1)">删除</button></td>
+                </tr>
+                <%})%>
+            </tbody>
+        </table>
+        <%}%>
+        <button class="addAddr" onclick="modifyorAdd(1)">新增收获地址</button>
+    </div>
+    <div class="commodityList">
+        <h3>商品清单</h3>
+        <table class="goods">
+            <thead>
+                <tr>
+                    <th style="display:none"></th>
+                    <th>商品名称</th>
+                    <th>市场价</th>
+                    <th>售价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%goods.forEach((item)=>{%>
+        <tr>
+            <td class="goodId"  style="display:none"><%=item.goodId%></td>
+            <td style="width:10%"><a href="details?goodId=<%=item.goodId%>"><img src="../images/<%=item.image%>"
+                        alt=""></a><%=item.goodName%></td>
+            <td style="width:10%">￥<%=item.originalPrice%></td>
+            <td style="width:10%">￥<%=item.price%></td>
+            <td class="goodNum" style="width:10%"><%=item.number%></td>
+            <td style="width:10%">￥<span class="orderMoney"><%=item.price*item.number%></span></td>
+        </tr>
+        <%})%>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>备注：<input style="border:none" class="note" type="text"></td>
+                <td colspan="4">
+                    <span>商品总数量：<span class="totalNum"><%=goods.length%></span></span>
+                    <span>订单金额：<span class="ordersMoney"></span>元</span>
+                    <span>运费：<span class="freight">0</span>元</span>
+                </td>
+            </tr>
+        </tfoot>
+        </table>
+        <div class='submitOrderBox'>
+            <div>应付总金额：<span class="orderTotal"></span>元</div>
+            <button class="toPayment">提交订单</button>
+            <button class="cancelOrder">取消订单</button>
+        </div>
+    </div>
+</div>
+<div id="editAddr" class="modal fade" role='dialog' aria-labelledby="editAddrLabel">
+    <div class="modal-dialog" role='document'>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"
+                        class=" iconfont icon-icon-test"></span></button>
+                <h5 class="modal-title" id="editAddrLabel">编辑收货地址</h5>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li style="display:none" class="addrId"></li>
+                    <li>
+                        <label for="recipient">收货人姓名：</label>
+                        <input type="text" id="recipient" name="recipient" placeholder="请输入收货人姓名" required />
+                    </li>
+                    <li>
+                        <label for="recipientPhone">手机号码：</label>
+                        <input type="text" id="recipientPhone" name="recipientPhone" placeholder="请输入你的手机号"
+                            required /><span class="tips"></span>
+                    </li>
+                    <li>
+                        <label>所在地区：</label>
+                        <div class="chooseAddr">
+                            <select name="province" id="province" required>
+                                <option value="请选择">请选择</option>
+                            </select>
+                            <select name="city" id="city" required>
+                                <option value="请选择">请选择</option>
+                            </select>
+                            <select name="town" id="town" required>
+                                <option value="请选择">请选择</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="detailAddress">详细信息：</label>
+                        <input type="text" id="detailAddress" name="detailAddress" placeholder="请输入详细信息" required />
+                    </li>
+                    <li>
+                        <label for="postcode">邮政编码：</label>
+                        <input type="text" id="postcode" name="postcode" placeholder="请输入邮编" maxlength="6" />
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" onclick="addrEditBtn(this,1)" class="addrOrEditBtn btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="sureDelete" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">确定要删除这条收货地址？</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="deleteBtn btn btn-primary">确定</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<%-include('common/message.ejs')%>
+<%-include('common/footer.ejs')%>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+<script src="../js/message.js"></script>
+<script src="../js/checkout.js"></script>
+<script src='../js/common.js'></script>
+<script src="../js/area.js"></script>
+</body>
+
+</html>

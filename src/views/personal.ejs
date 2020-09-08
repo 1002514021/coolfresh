@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../css/personal.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1150685_6m9uh1295e9.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <%-include('common/header.ejs')%>
+    <ul id="breadcrumb">
+        <li class="active">个人中心</li>
+    </ul>
+    <div class="optTitle">
+        <span id="userInfoBar" onclick="showBox(1,this)" class="boxTab iconfont icon-bofang"> 个人信息</span>
+        <span id="userOrderBar" onclick="showBox(2,this)" class="boxTab iconfont icon-bofang"> 我的订单</span>
+        <span id="userAddrBar" onclick="showBox(3,this)" class="boxTab iconfont icon-bofang"> 收获地址管理</span>
+    </div>
+    <div class="personalBar" id="userInfo">
+        <div class="userInfo-left">
+            <div>点击头像框切换头像</div>
+            <div class="imgBox">
+                <%if(userInfo[0].photo){%>
+                    <img src="../images/<%=userInfo[0].photo%>" alt="">
+                <%}else{%>
+                    <img src="../images/1558625060386-uDefaultImage.png" alt="">
+                <%}%>
+            </div>
+            <form action="/uploadFile.do" method="post" id="myImage" enctype="multipart/form-data">
+                <input id="imgLoad" style="display:none" type="file" name="myFile">
+                <button class="saveImg" style="display:none" disabled>保存修改</button>
+            </form>
+        </div>
+        <div class="userInfo-right">
+            <div>
+                <label for="">姓名：</label>
+                <input class="uName" type="text" value="<%=userInfo[0].uName%>">
+            </div>
+            <div>
+                <span style="width:25%;display: inline-block">性别：</span>
+                <%if(userInfo[0].sex==0){%>
+                <label class="sex" for="">男</label>
+                <input class="man" checked type="radio" name='sex' value="0">
+                <label class="sex" for="">女</label>
+                <input class="woman" type="radio" name='sex' value="1">
+                <%}else{%>
+                <label class="sex" for="">男</label>
+                <input class="man" type="radio" name='sex' value="0">
+                <label class="sex" for="">女</label>
+                <input class="woman" checked type="radio" name='sex' value="1">
+                <%}%>
+                
+            </div>
+            <div>
+                <label for="">电话：</label>
+                <input readonly type="text" value="<%=userInfo[0].account%>">
+            </div>
+            <div>
+                <label for="">生日：</label>
+                <input class="birthDay" type="date" value="<%=userInfo[0].birthDay%>">
+            </div>
+            <div class="modifyPwd">修改密码</div>
+            <div class="pwd">
+                <label for="">原密码：</label>
+                <input class="originalpwd" type="password">
+            </div>
+            <div class="pwd">
+                <label for="">新密码：</label>
+                <input class="newpwd" type="password">
+            </div>
+            <div class="pwd">
+                <label for="">确定密码：</label>
+                <input class="ensurePwd" type="password">
+            </div>
+            <button id="saveUserInfo">保存</button>
+
+        </div>
+    </div>
+    <div class="personalBar" id="userOrder">
+        <%if(orders.length==0){%>
+        <span style="text-align:center">暂无订单信息信息</span>
+        <%}else{%>
+        <table class="orders">
+            <thead id="orderThead">
+                <tr>
+                    <th style="width: 18%">订单编号</th>
+                    <th style="width: 10%">
+                        <select onchange="selectState()" name="" id="orderState">
+                            <option value="">全部订单</option>
+                            <%states.forEach((item)=>{%>
+                            <option value="<%=item.state%>"><%=item.state%></option>
+                            <%})%>
+                        </select>
+                    </th>
+                    <th style="width: 10%">下单日期</th>
+                    <th style="width: 15%">备注</th>
+                    <th style="width: 10%">定单金额</th>
+                    <th style="width: 10%">商品数量</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="orderTbody">
+                <%orders.forEach((item)=>{%>
+                <tr>
+                    <td id='orderCode'><%=item.orderCode%></td>
+                    <td id='orderState'><%=item.state%></td>
+                    <td id="orderDate"><%=item.orderDate%></td>
+                    <td id='orderNote'><%=item.note%></td>
+                    <td id="orderFee"><%=item.fee%></td>
+                    <td id="orderNum"><%=item.totalNum%></td>
+                    <td style='text-align: left'>
+                        <button onclick="orderDetails('<%=item.orderCode%>','<%=item.state%>')">订单详情</button>/
+                        <button onclick="deleteOrder('<%=item.orderCode%>')">删除订单</button>
+                        <%if(item.state=='未付款'){%>
+                        <button onclick="pay('<%=item.orderCode%>')">去付款</button>
+                        <%}%>
+                    </td>
+                </tr>
+                <%})%>
+            </tbody>
+        </table>
+        <%}%>
+    </div>
+    <div class="personalBar" id="userAddr">
+        <%if(address.length==0){%>
+        <span style="text-align:center">暂无收货人信息</span>
+        <%}else{%>
+        <table class="addresses">
+            <thead>
+                <tr>
+                    <th style="display:none"></th>
+                    <th style="display:none"></th>
+                    <th>收货人姓名</th>
+                    <th>收获地址</th>
+                    <th>手机号码</th>
+                    <th>邮政编码</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%address.forEach((item)=>{%>
+                <tr>
+                    <td class="addrId" style="display:none"><%=item.addressId%></td>
+                    <td class="recipient" style="width:10%"><%=item.recipient%></td>
+                    <td style="width:20%">
+                        <span class="province"><%=item.province%></span>
+                        <span class="city"><%=item.city%></span>
+                        <span class="county"><%=item.county%></span>
+                        <span class="detailAddr"><%=item.detailAddr%></span>
+                    </td>
+                    <td class="phone" style="width:10%"><%=item.phone%></td>
+                    <td class="zipCode" style="width:10%"><%=item.zipCode%></td>
+                    <td style="width:20%"><button class="modifyAddr" onclick="modifyorAdd(this)">修改</button> / <button
+                            onclick="deleteAddr(this,0)">删除</button></td>
+                </tr>
+                <%})%>
+            </tbody>
+        </table>
+        <%}%>
+        <button class="addAddr" onclick="modifyorAdd(1)">新增收获地址</button>
+    </div>
+    <div id="editAddr" class="modal fade" role='dialog' aria-labelledby="editAddrLabel">
+            <div class="modal-dialog" role='document'>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"
+                                class=" iconfont icon-icon-test"></span></button>
+                        <h5 class="modal-title" id="editAddrLabel">编辑收货地址</h5>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li style="display:none" class="addrId"></li>
+                            <li>
+                                <label for="recipient">收货人姓名：</label>
+                                <input type="text" id="recipient" name="recipient" placeholder="请输入收货人姓名" required />
+                            </li>
+                            <li>
+                                <label for="recipientPhone">手机号码：</label>
+                                <input type="text" id="recipientPhone" name="recipientPhone" placeholder="请输入你的手机号"
+                                    required /><span class="tips"></span>
+                            </li>
+                            <li>
+                                <label>所在地区：</label>
+                                <div class="chooseAddr">
+                                    <select name="province" id="province" required>
+                                        <option value="请选择">请选择</option>
+                                    </select>
+                                    <select name="city" id="city" required>
+                                        <option value="请选择">请选择</option>
+                                    </select>
+                                    <select name="town" id="town" required>
+                                        <option value="请选择">请选择</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <label for="detailAddress">详细信息：</label>
+                                <input type="text" id="detailAddress" name="detailAddress" placeholder="请输入详细信息" required />
+                            </li>
+                            <li>
+                                <label for="postcode">邮政编码：</label>
+                                <input type="text" id="postcode" name="postcode" placeholder="请输入邮编" maxlength="6" />
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" onclick="addrEditBtn(this,0)" class="addrOrEditBtn btn btn-primary">保存</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div id="sureDelete" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">确定要删除这条收货地址？</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="deleteBtn btn btn-primary">确定</button>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    <div id="sureDeleteOrder" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">确定要删除这条订单？</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="deleteOrderBtn btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="orderDetails" class="modal fade" role='dialog' aria-labelledby="orderDetailsLabel">
+        <div class="modal-dialog modal-lg" role='document'>
+            <div class="modal-content" >
+                <div class="modal-header"  id='details-body'>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class=" iconfont icon-icon-test"></span>
+                    </button>
+                    <h5 class="modal-title" id="orderDetailsLabel">订单详情</h5>
+                </div>
+                <div class="modal-body">
+                    <table id="detailBox">
+                        <thead>
+                            <tr id="orderDetailsTr">
+                            <th style="width:15%">订单编号</th>
+                            <th style="width:20%">商品图片</th>
+                            <th style="width:10%">商品名字</th>
+                            <th style="width:10%">售价</th>
+                            <th style="width:10%">原价</th>
+                            <th style="width:10%">购买数量</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderDetailsTbody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div id="commentBox" style=" display:none">
+                        <div style="background-color: #fff;padding:0 0.5%;">
+                            <div class="starsBar">
+                                <%for(let i=0;i<5;i++){%>
+                                <span class="choosedStar iconfont icon-star"></span>
+                                <%}%>
+                                <span class="starResult">非常好</span>
+                            </div>
+                            <textarea placeholder="商品满足您的期待吗？说说您的心得。分享给想买的他们吧" name="" id="commentTextarea" cols="30" rows="10"></textarea>
+                            <button id="cacelPublish">取消评论</button>
+                            <button id="publish">发表评论</button>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <%-include('common/message.ejs')%>
+        <%-include('common/footer.ejs')%>
+        <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+        <script src="../js/message.js"></script>
+        <script src="../js/personal.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../js/area.js"></script>
+</body>
+
+</html>

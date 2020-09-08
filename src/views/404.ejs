@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0
+        }
+         a{
+             text-decoration: none;
+
+             
+         }
+        #mainBar{
+            overflow: hidden;
+            position: relative;
+            width: 1366px;
+            height:655px;
+            background:url("../../images/404.jpg") 0 0 /100% 100%
+        }
+        .try{
+            position: absolute;
+            top:455px;
+            right: 550px;
+            color: #0C9702;
+            font-size: 12px;
+        }
+        .toBtn{
+            position: absolute;
+            top:520px;
+            left: 600px;
+        }
+        .toBtn a{
+            margin-right: 30px;
+            display: inline-block;
+            padding: 1px 20px;
+            /* width: 60px; */
+            height: 25px;
+            cursor: pointer;
+            font-size: 12px;
+            text-align: center;
+            line-height: 25px;
+            color: #fff;
+            background-color: #767877;
+        }
+        .toBtn a:hover{
+            background-color: #0C9702;;
+        }
+    </style>
+</head>
+<body>
+    <div id='mainBar'>
+        <a href="" class="try">重试</a>
+        <div class="toBtn">
+            <a href="index">返回首页</a>
+            <a onclick="javascript:window.history.back(-1)">返回上一步</a>
+        </div>
+    </div>
+</body>
+</html>

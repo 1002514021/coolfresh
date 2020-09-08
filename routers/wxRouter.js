@@ -1,0 +1,11 @@
+const express=require("express")
+const dataCtrl=require("../controller/wxCtrl")
+const wxRouter=express.Router()
+wxRouter.post('/getIndexData.do',dataCtrl.getIndexData)
+wxRouter.post('/getCartData.do',dataCtrl.getCartData)
+wxRouter.post('/getGroupBuyingData.do',dataCtrl.getGroupBuyingData)
+wxRouter.post('/getPersonalCenterData.do',dataCtrl.getPersonalCenterData)
+wxRouter.post('/getFlashSaleData.do',dataCtrl.getFlashSaleData)
+wxRouter.post('/getInviteFriendsData.do',dataCtrl.getInviteFriendsData)
+wxRouter.post('/getIntegral.do',dataCtrl.getIntegral)
+module.exports=wxRouter

@@ -1,0 +1,336 @@
+/** 面包屑 */
+* {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    color:#333;
+}
+.btn-default,.modal-content,.btn-primary{
+    border-radius: 0!important;
+}
+#breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
+
+#breadcrumb {
+    list-style: none;
+    overflow: hidden;
+    clear: both;
+    contain: '';
+    display: block;
+    padding: 1.6% 3%;
+    margin: 2% 0;
+    background-color: #f5f5f5;
+ }
+ #breadcrumb  .active{
+    color: #0C9702;
+ }
+
+#breadcrumb li {
+    float: left;
+    margin-left: 20px;
+}
+.optTitle {
+    margin: 1% 10%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.optUnderLine {
+    color: #0C9702 !important;
+    border-bottom: 2px solid #0C9702;
+}
+
+.optTitle>span {
+    padding: 30px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.personalBar{
+    margin: 1% 10%;
+    box-shadow: 0 0 10px 5px #ddd
+}
+#userInfo{
+    height: 500px;
+    width: 60%;
+    padding: 2%;
+    margin:3% auto;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+#userAddr{
+    padding: 2%;
+    width: 60%;
+    margin:3% auto;
+}
+.userInfo-left,.userInfo-right{
+    /* border: 1px solid #0C9702; */
+    /* box-shadow: 0 0 2px 1px #0C9702; */
+    width: 50%;
+    height: 100%;
+}
+.userInfo-left{
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #ddd;
+}
+.userInfo-right{
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+.userInfo-right input:not([type='radio']){
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background-color: transparent!important;
+    padding: 1% 5%;
+}
+.userInfo-right label:not(.sex){
+    width: 20%
+}
+.modifyPwd{
+   cursor: pointer;
+   color:#0C9702;
+}
+#saveUserInfo{
+    border: none;
+    background-color:#0C9702;
+    color:#fff;
+    padding: 3% ;
+}
+.imgBox{
+    margin: auto;
+    /* border-radius: 50%; */
+    /* border: 1px solid #0C9702; */
+    /* box-shadow: 0 0 2px 5px #333; */
+    /* padding: 5%; */
+    width:160px;
+    width:200px;
+    height:200px;
+    cursor: pointer;
+
+}
+.saveImg{
+    color:#0C9702;
+    border:none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.imgBox img{
+    width: 100%;
+    height: 100%;
+}
+
+#imgBtn{
+    width: 30%;
+    color: #0C9702;
+    background-color: transparent;
+    border:none;
+}
+.addresses th{
+    text-align: center
+}
+.addresses{
+    /* width: 80%; */
+    text-align: center;
+    border-spacing: 20px;
+    border-collapse: separate; 
+}
+.addresses td{
+    border: none;
+}
+.addresses button{
+    width: 30%;
+    border: none;
+    background-color: #fff;
+    transition: all linear .3s;
+    padding: 1%;
+    margin: 0 2%;
+}
+.addAddr{
+    border:none;
+    padding:0.5% 1%;
+    margin: 2% 4%;
+    background-color: #0C9702;
+    color: #fff;
+}
+#editAddr li{
+    display: flex;
+    margin-bottom:3%;
+    align-items: flex-end
+}
+#editAddr .close{
+    font-size: 18px;
+}
+#editAddrLabel{
+    color:#0C9702;
+    font-size: 16px
+}
+#editAddr label{
+    width: 20%;
+}
+#editAddr li input{
+    padding: 1%;
+    width: 80%
+}
+#editAddr .chooseAddr{
+    display: flex;
+    width: 80%;
+}
+#editAddr .chooseAddr select{
+    padding: 1%;
+    margin-right: 2%;
+    width: 20%
+}
+#editAddr .modal-body button{
+    font-size: 12px;
+    width: 15%;
+    margin:2%;
+    border: none;
+    background-color: #ddd;
+}
+#editAddr .addrOrEditBtn{
+    background-color: #0C9702!important;
+}
+#sureDelete button{
+    padding: 0.5% 5%;
+    border: none;
+    background-color: #ddd;
+    font-size: 12px;
+    border-radius: 0
+}
+#sureDelete .modal-footer{
+    height: 50px;
+    text-align: center;
+}
+#sureDelete .deleteBtn{
+    background-color: #0C9702;
+    color: #fff;
+    margin:0 10%;
+}
+#sureDeleteOrder button{
+    padding: 0.5% 5%;
+    border: none;
+    background-color: #ddd;
+    font-size: 12px;
+    border-radius: 0
+}
+#sureDeleteOrder .modal-footer{
+    height: 50px;
+    text-align: center;
+}
+#sureDeleteOrder .deleteOrderBtn{
+    background-color: #0C9702;
+    color: #fff;
+    margin:0 10%;
+}
+#userOrder{
+    padding: 2%;
+    width: 60%;
+    margin:3% auto;
+}
+#userOrder.orders{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+#orderState{
+    border:none;
+    text-align: center;
+}
+#userOrder .orders th{
+    text-align: center;
+    padding: 2% 0;
+}
+#userOrder .orders td{
+    text-align: center;
+    padding: 1% 0;
+    border: 1px solid #ddd
+}
+#userOrder .orders td button{
+    border:none;
+    background-color: transparent;
+    padding: 3%;
+}
+#userOrder .orders td button:hover{
+    color:#0C9702; 
+}
+#orderDetails .btn-default{
+    background-color: #0C9702;
+    color: #fff;
+    padding:0.8% 3.5%;
+    border: none;
+    font-size: 12px;
+}
+#orderDetails h5{
+    text-align: center
+}
+#orderDetails .modal-content{
+    margin: 0 10%;
+}
+#orderDetails th,#orderDetails td{
+    padding: 1%;
+    text-align: center;
+}
+#orderDetails tr{
+    border-bottom: 1px solid #ddd;
+}
+#orderDetails img{
+    width: 30%;
+    height: 8%;
+}
+#orderDetails thead{
+    padding: 10%;
+}
+#orderDetails .modal-footer{
+    border:none;
+    padding: 0.5%;
+}
+#details-body{
+    clear: both;
+    position: relative;
+    max-height:500px;
+    overflow: auto;
+}
+#commentBox{
+    width: 100%;
+    position: absolute;
+    
+    left: 0;
+    top:0px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6)
+}
+#commentBox textarea{
+    padding:2%;
+    border-color: #ddd;
+    width: 100%;
+    height: 80px;
+}
+.starsBar{
+    padding:1% 2%;
+}
+.starsBar .icon-star{
+    color:#ddd;
+    cursor: pointer;
+}
+.starsBar .choosedStar{
+    color: orangered;
+}
+#commentBox button{
+    border: none;
+    padding:0.5% 2%;
+    margin: 2% 2% 2% 0;
+}
+#publish{
+    background-color: #0C9702;
+    color:#fff
+}

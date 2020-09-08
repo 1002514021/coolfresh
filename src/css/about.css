@@ -1,0 +1,73 @@
+*{
+    margin:0;
+    padding: 0;
+    margin: 0;
+	padding: 0;
+	user-select: none;
+	-webkit-user-select: none;
+	list-style: none;
+}
+.btn-default,.modal-content,.btn-primary{
+    border-radius: 0!important;
+}
+a{
+    text-decoration: none;
+}
+ol,ul{
+    list-style: none;
+}
+img{
+    font-size: 0;
+}
+#aboutBanner{
+  
+    width:100%;
+    background-color:red;
+}
+#aboutBanner .slideList{
+    overflow:hidden;
+    position: relative;
+    contain: '';
+    display: block
+}
+/* .icon-jinyong_o{
+	font-weight:bold;
+} */
+#aboutBanner li{
+    transition: all linear .8s;
+    float: left;
+    position: absolute;
+    top:0;
+    left:0
+}
+#mainBar{
+    padding:3% 5%;
+}
+#mainBar .welcome{
+    display: flex;
+    justify-content: space-between;
+    padding:3%;
+}
+#mainBar .ourName{
+    font-size: 20px;
+    color: #0C9702;
+    font-style: italic;
+    font-weight: bold;
+}
+#mainBar h3{
+    font-size: 18px;
+    letter-spacing: 5px;
+    margin-bottom:3%;
+}
+#mainBar article{
+    line-height: 230%;
+    font-size: 12px;
+} 
+#mainBar .aboutInfo{
+    width: 50%;
+    /* padding: ; */
+}
+
+#mainBar .ourVedio img{
+    width: 100%;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/message.css">
+</head>
+
+<body>
+    <div style="display:none">
+        <button class="btn btn-keyword">请输入关键词进行搜索</button>
+        <button class="btn btn-newPwd">密码不匹</button>
+        <button class="btn btn-success">成功提示</button>
+        <button class="btn btn-order-success">订单提交成功</button>
+        <button class="btn btn-danger">失败提示</button>
+        <button class="btn btn-warning">警告提示</button>
+        <button class="btn btn-info">信息提醒</button>
+        <button class="btn btn-addr">选择收货地址</button>
+        <button class="btn btn-pwdRepeat"></button>
+        <button class="btn btn-pwderror"></button>
+        <button class="btn btn-smsSended"></button>
+        <button class="btn btn-appoint-success"></button>
+        <button class="btn btn-not-null"></button>
+        <button class="btn btn-format-error"></button>
+    </div>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $('.btn-keyword').on('click', function () {
+                $.message('请输入关键词进行搜索');
+            })
+            $('.btn-order-success').on('click', function () {
+                $.message('订单提交成功');
+            })
+            $('.btn-success').on('click', function () {
+                $.message('操作成功');
+            })
+            $('.btn-appoint-success').on('click', function () {
+                $.message('预约成功');
+            })
+            $('.btn-smsSended').on('click', function () {
+                $.message('验证码已发送,请注意查收');
+            })
+            
+            $('.btn-danger').on('click', function () {
+                $.message({
+                    message: '操作失败',
+                    type: 'error'
+                });
+            })
+            $('.btn-not-null').on('click', function () {
+                $.message({
+                    message: '输入不能为空！',
+                    type: 'error'
+                });
+            })
+            $('.btn-format-error').on('click', function () {
+                $.message({
+                    message: '电话号码格式不正确',
+                    type: 'error'
+                });
+            })
+            $('.btn-warning').on('click', function () {
+                $.message({
+                    message: '未登录状态，请先登录',
+                    type: 'warning'
+                });
+            })
+            $('.btn-info').on('click', function () {
+                $.message({
+                    message: '请选择商品对象',
+                    type: 'info'
+                });
+            })
+            $('.btn-addr').on('click', function () {
+                $.message({
+                    message: '请选择收货地址',
+                    type: 'warning'
+                });
+            })
+            $('.btn-newPwd').on('click', function () {
+                $.message({
+                    message: '两次密码不匹配请重新输入',
+                    type: 'warning'
+                });
+            })
+            $('.btn-pwderror').on('click', function () {
+                $.message({
+                    message: '密码错误',
+                    type: 'warning'
+                });
+            })
+            $('.btn-pwdRepeat').on('click', function () {
+                $.message({
+                    message: '新密码和旧密码不能相同',
+                    type: 'warning'
+                });
+            })
+        })
+    </script>
+</body>
+
+</html>

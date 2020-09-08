@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="../../css/header.css">
+<link rel="stylesheet" href="../../font/font_w52fp6dn25i/iconfont.css">
+<link rel="stylesheet" href="http:////at.alicdn.com/t/font_1150685_gqwyf9ikhh.css">
+<link rel="stylesheet" href="../css/message.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<body>
+    <header id="header">
+        <div id='hSliderBar'>
+            <div class="scrollNews">
+                <ul>
+                    <li>产地直采fgfhghgsssssssssssssssssssssssssssssssssssssssssssssssssssssssssshghgggggggggggggggg</li>
+                    <li>从生产到销ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd售一步完成
+                    </li>
+                </ul>
+            </div>
+            <div class="hSliderRightBar">
+                <div class="loginState noLogin">
+                    <a href="../login">登录</a>
+                    <span>/</span>
+                    <a href="../register">注册</a>
+                </div>
+                <div class="loginState isLogin">
+                    <a href="personal">
+                        <span class="userName"></span>
+                        <span>，欢迎回来</span>
+                    </a>
+                    <span id="logout">注销</span>
+                </div>
+                <span style="display:none" data-toggle="modal" data-target="#helpModal" class="helpBtn iconfont icon-bangzhuzhongxin"></span>
+            </div>
+        </div>
+        <div id="hMainBar">
+            <a href="../index" id="hLogo">
+                <span class="logoText">凉鲜生</span>
+                <img src="../../images/logo.png" alt="凉鲜生">
+            </a>
+            <div id="rightBar">
+                <nav id="nav">
+                    <ul class="myUl"></ul>
+                </nav>
+                <div id="hOthers">
+                    <div class="searchBar">
+                        <input title="可根据商品的种类、品种、名字、产地、营养元素等进行搜索" id="keyWord" type="text" placeholder="输入关键字搜索">
+                        <span class="iconfont  headerSearch icon-sousuo1"></span>
+                    </div>
+                    <span class="iconfont wx icon-weixin">
+                        <div class="codeImgBox">
+                            <img src="../../images/smallProcode.jpg" alt="">
+                            <div class="codeText">扫码进入微商场</div>
+                        </div>
+                    </span>
+                    <span id="toCart" class="cart iconfont icon-tubiaozhizuomoban">
+                        <span class="cartNum">0</span>
+                    </span>
+                    <!-- <span class="iconfont icon-bangzhuzhongxin"></span> -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 头部占位 -->
+    <div id="hPlaceHolder"></div>
+    <div id="map_container" style="display:none"></div>
+    <!--帮助文档的模态框 -->
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="helpModalLabel">凉鲜生说明文档</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            <h4 class="title">优惠券发放政策</h4>
+                            <section class="descriptions">
+                                sjdlfsjflsdfjs'fdsfkl
+                                dflkjdlfjsdflsdsjdfldjf
+                                sdlfjsdlfjlj
+                            </section>
+                        </li>
+                        <li>
+                            <h4 class="title">积分赚取&兑换规则</h4>
+                            <section class="descriptions">
+                                sjdlfsjflsdfjs'fdsfkl
+                                dfsdfsjfkkshdf KJhdjkhfsdk 海口市上岛咖啡好看的
+                            </section>
+                        </li>
+                    </ul>
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 点击购物车未登录询问是否跳转到登陆页的模态框 -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="cartModalLabel">当前未登录</h4>
+                </div>
+                <div class="modal-body">
+                    <p>当前状态为未登录，您是否要跳转到登录页</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+                    <button type="button" class="btn btn-primary">去登陆</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.2"></script>
+    <script src="../../js/header.js"></script>
+    <script type="text/javascript" src="../../js/jquery-ui.min.js"></script>
+</body>
